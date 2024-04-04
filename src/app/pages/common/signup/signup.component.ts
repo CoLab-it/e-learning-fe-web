@@ -3,6 +3,7 @@ import { InputComponent } from '../../../components/common/input/input.component
 import { ButtonComponent } from '../../../components/common/button/button.component';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { login } from '../../../login.interface';
+import { HeaderComponent } from '../../../components/common/header/header.component';
 
 @Component({
   selector: 'app-signup',
