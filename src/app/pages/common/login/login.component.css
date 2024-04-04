@@ -1,0 +1,27 @@
+.signup{
+    border-radius: 20px 0 0 20px;
+    background: #52786e;
+}
+.image{
+    /* background-image: url(https://images.pexels.com/photos/13289844/pexels-photo-13289844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2); */
+    border-radius: 0 20px 20px 0  ;
+
+}
+@media (max-width: 768px){
+    .main{
+        flex-direction: column;
+    }
+    .signup{
+        width: 100%;
+        border-radius: 0 ;
+        gap: 0px;
+    }
+    .image{
+        width: 100%;
+        display: none;
+        border-radius: 0 0 20px 20px   ;
+    }
+    .head{
+        font-size: 15px;
+    }
+}
