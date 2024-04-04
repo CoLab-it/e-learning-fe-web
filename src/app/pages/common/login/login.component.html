@@ -1,46 +1,28 @@
-
-<section class="main w-full  h-screen flex ">
+<section class="main w-full  h-screen flex flex-row-reverse">
     <div class="image w-1/2 h-full flex justify-center items-center">
         <img src="https://images.pexels.com/photos/13289844/pexels-photo-13289844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" class="rounded-2xl w-[80%] ">
     </div>
-    <div class="signup w-1/2 h-full  flex flex-col justify-center gap-4 ">
-            <h1 class="head text-right w-[85%] mt-2 !text-[30px] font-bold text-[white] font-serif ">SIGN UP</h1>
+    <div class="login w-1/2 h-full  flex flex-col justify-center gap-4 ">
+            <h1 class="head text-right w-[85%] mt-2 !text-[30px] font-bold text-[white] font-serif ">LOGIN</h1>
             <form action="" class=" py-7">
                <div class=" flex flex-col gap-2">
                 <div class="flex flex-col  items-center">
-                    <app-input class="w-full flex justify-center" [placeholder]="'Enter Your Name'" #name></app-input>
-                    @if(submit && logindata.username === undefined){
-                        <label for="" class=" w-[70%] text-[red]">its required*</label>
-                    }
-                </div>
-                <div class="flex flex-col  items-center">
                     <app-input class="w-full flex justify-center" [placeholder]="'Enter Your email'" #email></app-input>
-                    @if(submit && logindata.useremail === undefined){
-                        <label for="" class=" w-[70%] text-[red]">its required*</label>
-                    }
-                </div>
-                <div class="flex flex-col  items-center">
-                    <app-input class="w-full flex justify-center" [placeholder]="'Phonenumber'" #phone></app-input>
-                    @if(submit && logindata.userphone === undefined){
-                        <label for="" class=" w-[70%] text-[red]">its required*</label>
+                    @if(submit && (!logindata.useremail || logindata.useremail.trim() ==='' )){
+                        <label for="" class=" w-[70%] text-[red]">this field is required*</label>
                     }
                 </div>
                 <div class="flex flex-col  items-center">
                     <app-input class="w-full flex justify-center" [placeholder]="'Enter Your Pasword'" #password></app-input>
-                    @if(submit && logindata.userpass === undefined){
-                        <label for="" class=" w-[70%] text-[red]">its required*</label>
-                    }
-                </div>
-                <div class="flex flex-col  items-center">
-                    <app-input class="w-full flex justify-center" [placeholder]="'Confirm Your Password'" #confirmpassword></app-input>
-                    @if(submit && (logindata.userconfirmpass === '' || logindata.userconfirmpass === undefined)){
-                        <label for="" class=" w-[70%] text-[red]">its required*</label>
+                    @if(submit && (!logindata.userpass || logindata.userpass.trim() ==='')){
+                        <label for="" class=" w-[70%] text-[red]">this field is required*</label>
                     }
                 </div>
                </div>
             </form>
             <div class="w-[85%] text-right">
-                <app-button [ButtonValue]="'Register'" (click)="onSubmit()"></app-button>
+                <app-button [ButtonValue]="'Login'" (click)="onSubmit()"></app-button>
             </div>
+            <p class="w-full  text-center text-white">You didn't have account? <a href="/" class="cursor-pointer">Please Register</a></p>
     </div>
 </section>

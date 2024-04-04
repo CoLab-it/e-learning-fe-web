@@ -1,23 +1,20 @@
-import { Component, OnInit, ViewChild, input } from '@angular/core';
-import { InputComponent } from '../../../components/common/input/input.component';
-import { ButtonComponent } from '../../../components/common/button/button.component';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
 import { login } from '../../../login.interface';
+import { InputComponent } from '../../../components/common/input/input.component';
+import { FormBuilder } from '@angular/forms';
+import { ButtonComponent } from '../../../components/common/button/button.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [InputComponent,ButtonComponent,ReactiveFormsModule,FormsModule],
+  imports: [InputComponent,ButtonComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent {
 
-  @ViewChild('name') name!: InputComponent ;
   @ViewChild('email') email!: InputComponent ;
-  @ViewChild('phone') phone!: InputComponent ;
   @ViewChild('password') password!: InputComponent ;
-  @ViewChild('confirmpassword') confirmpassword!: InputComponent ;
   submit=false
 
   logindata:login={};
@@ -31,10 +28,9 @@ export class LoginComponent implements OnInit{
 
   onSubmit(){
     this.submit =true;
-    this.logindata.username=this.name.value
     this.logindata.useremail=this.email.value
-    this.logindata.userphone=this.phone.value
     this.logindata.userpass=this.password.value
-    this.logindata.userconfirmpass=this.confirmpassword.value
+    console.log(this.logindata);
+    
   }
 }

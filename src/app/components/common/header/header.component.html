@@ -1,0 +1,28 @@
+<div class="header w-full  bg-[#52786e] md:flex hidden">
+  <h1 class="w-[30%] text-center">LOGO</h1>
+  <ul class=" w-[70%] flex justify-around">
+    <li>Home</li>
+    <li>Contact</li>
+    <li>Cources</li>
+    <li>My Account</li>
+    <li>jobs</li>
+  </ul>
+</div>
+
+<div class="header w-full h-screen  flex flex-col md:hidden absolute">
+   <div class="">
+        <div class="headerside w-full h-full bg-[#52786e] flex justify-between px-3">
+        <h1 class="w-[30%]">LOGO</h1>
+        <i class="fa-solid fa-bars  flex items-center text-[30px]" (click)="booleancheck()"></i>
+        </div>
+   </div>
+   <div class="listfull h-full w-full  bg-[#5a7d7448] " [hidden]="booleanvalue">
+    <ul class="list   w-[40%] h-full bg-[#52786e] " >
+        <li>Home</li>
+        <li>Contact</li>
+        <li>Cources</li>
+        <li>My Account</li>
+        <li>jobs</li>
+        </ul>
+   </div>
+</div>
