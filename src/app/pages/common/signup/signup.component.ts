@@ -4,6 +4,7 @@ import { ButtonComponent } from '../../../components/common/button/button.compon
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { login } from '../../../login.interface';
 import { HeaderComponent } from '../../../components/common/header/header.component';
+import { SignupService } from '../../../services/signup.service';
 
 @Component({
   selector: 'app-signup',
@@ -22,11 +23,13 @@ export class SignupComponent implements OnInit {
   lowercase = false;
   emailtest = false;
   passtest = false;
-  confirmpass!:boolean
+  confirmpass!: boolean;
+  successmessage!: string;
+  errormessage!: string;
 
   signupdata: login = {};
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private signupservice: SignupService) {}
 
   ngOnInit(): void {}
 
@@ -65,23 +68,50 @@ export class SignupComponent implements OnInit {
     }
   }
 
-  confirmpasscheck(){
+  confirmpasscheck() {
     this.signupdata.userconfirmpass = this.confirmpassword.value;
-    if(this.signupdata.userpass?.trim()!==this.confirmpassword.value?.trim() && this.confirmpassword.value !== ''){
-      this.confirmpass=true
-    }else{
-      this.confirmpass=false
+    if (
+      this.signupdata.userpass?.trim() !== this.confirmpassword.value?.trim() &&
+      this.confirmpassword.value !== ''
+    ) {
+      this.confirmpass = true;
+    } else {
+      this.confirmpass = false;
     }
-
   }
 
   onSubmit() {
     this.submit = true;
     this.signupdata.userphone = this.phone.value;
-    if(this.signupdata.username && this.signupdata.useremail && this.signupdata.userphone && this.signupdata.userpass && this.signupdata.userconfirmpass){
-      if(!this.lowercase && !this.emailtest && !this.passtest && !this.confirmpass){
-        console.log('minnuss');
-        console.log(this.signupdata);
+    if (
+      this.signupdata.username &&
+      this.signupdata.useremail &&
+      this.signupdata.userphone &&
+      this.signupdata.userpass &&
+      this.signupdata.userconfirmpass
+    ) {
+      if (
+        !this.lowercase &&
+        !this.emailtest &&
+        !this.passtest &&
+        !this.confirmpass
+      ) {
+        this.signupservice.userSignup(this.signupdata).subscribe({
+          next: (res) => {
+            console.log(res);
+            this.successmessage = res.message;
+            this.signupservice.token=res.token;
+            setTimeout(()=>{
+              this.successmessage=''
+            },2000)
+          },
+          error: (err) => {
+            this.errormessage = err.error.message;
+            setTimeout(()=>{
+              this.errormessage=''
+            },2000)
+          },
+        });
       }
     }
   }
