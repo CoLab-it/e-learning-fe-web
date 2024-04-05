@@ -4,43 +4,55 @@
     </div>
     <div class="signup w-1/2 h-full  flex flex-col justify-center gap-4 ">
             <h1 class="head text-right w-[85%] mt-2 !text-[30px] font-bold text-[white] font-serif ">SIGN UP</h1>
-            <form action="" class=" py-7">
+            <form action="" class=" ">
                <div class=" flex flex-col gap-2">
                 <div class="flex flex-col  items-center">
-                    <app-input class="w-full flex justify-center" [placeholder]="'Enter Your Name'" #name></app-input>
+                    <app-input class="w-full flex justify-center" [placeholder]="'Enter Your Name'" #name (input)="namecheck()"></app-input>
                     @if(submit && (!signupdata.username || signupdata.username.trim() ==='' )){
-                        <label for="" class=" w-[70%] text-[red]">this field is required*</label>
+                        <label for="" class=" w-[70%] text-[#b99292] text-[12px]">this field is required*</label>
+                    }
+                    @if(lowercase){
+                        <label for="" class=" w-[70%] text-[#b99292] text-[10px]">only  lower case letters are allowed*</label>
                     }
                 </div>
                 <div class="flex flex-col  items-center">
-                    <app-input class="w-full flex justify-center" [placeholder]="'Enter Your email'" #email></app-input>
+                    <app-input class="w-full flex justify-center" [placeholder]="'Enter Your email'" #email (input)="emailcheck()"></app-input>
                     @if(submit && (!signupdata.useremail || signupdata.useremail.trim() ==='' )){
-                        <label for="" class=" w-[70%] text-[red]">this field is required*</label>
+                        <label for="" class=" w-[70%] text-[#b99292] text-[12px]">this field is required*</label>
+                    }
+                    @if(emailtest){
+                        <label for="" class=" w-[70%] text-[#b99292] text-[10px]">please enter email in correct format*</label>
                     }
                 </div>
                 <div class="flex flex-col  items-center">
                     <app-input class="w-full flex justify-center" [placeholder]="'Phonenumber'" #phone></app-input>
                     @if(submit && (!signupdata.userphone )){
-                        <label for="" class=" w-[70%] text-[red]">this field is required*</label>
+                        <label for="" class=" w-[70%] text-[#b99292] text-[12px]">this field is required*</label>
                     }
                 </div>
                 <div class="flex flex-col  items-center">
-                    <app-input class="w-full flex justify-center" [placeholder]="'Enter Your Pasword'" #password></app-input>
+                    <app-input class="w-full flex justify-center" [placeholder]="'Enter Your Pasword'" #password (input)="passwordcheck()"></app-input>
                     @if(submit && (!signupdata.userpass || signupdata.userpass.trim() ==='')){
-                        <label for="" class=" w-[70%] text-[red]">this field is required*</label>
+                        <label for="" class=" w-[70%] text-[#b99292] text-[12px]">this field is required*</label>
+                    }
+                    @if(passtest){
+                        <label for="" class=" w-[70%] text-[#b99292] text-[9px]">capital & small  letters, numbers and symbols are allowed.</label>
                     }
                 </div>
                 <div class="flex flex-col  items-center">
-                    <app-input class="w-full flex justify-center" [placeholder]="'Confirm Your Password'" #confirmpassword></app-input>
+                    <app-input class="w-full flex justify-center" [style.color]="confirmpass ? 'red' : 'black'"  [placeholder]="'Confirm Your Password'" #confirmpassword (input)="confirmpasscheck()"></app-input>
                     @if(submit && (!signupdata.userconfirmpass || signupdata.userconfirmpass.trim() ==='')){
-                        <label for="" class=" w-[70%] text-[red]">this field is required*</label>
+                        <label for="" class=" w-[70%] text-[#b99292] text-[12px]">this field is required*</label>
+                    }
+                    @if(confirmpass){
+                        <label for="" class=" w-[70%] text-[#b99292] text-[10px]" >enter the password as same  as above</label>
                     }
                 </div>
                </div>
             </form>
-            <div class="w-[85%] text-right">
-                <app-button [ButtonValue]="'Register'" (click)="onSubmit()"></app-button>
+            <div class="btn w-[85%] text-right">
+                <app-button [ButtonValue]="'Register'" (click)="onSubmit()" ></app-button>
             </div>
-            <p class="w-full  text-center text-white">You have already an account ? <a href="/login" class="cursor-pointer">Please login</a></p>
+            <p class="login-text w-full  text-center text-white">You have already an account ? <a href="/login" class="cursor-pointer">Please login</a></p>
     </div>
 </section>

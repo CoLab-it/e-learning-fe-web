@@ -23,6 +23,12 @@
     .head{
         font-size: 15px;
     }
+    .login-text{
+        margin-top: 20px;
+    }
+    .btn{
+        margin-top: 20px;
+    }
 }
 
 a:hover{
