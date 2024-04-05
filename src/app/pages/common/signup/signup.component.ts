@@ -5,11 +5,14 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { login } from '../../../login.interface';
 import { HeaderComponent } from '../../../components/common/header/header.component';
 import { SignupService } from '../../../services/signup.service';
+import { Router } from '@angular/router';
+import { ButtonLoadingComponent } from '../../../components/common/button-loading/button-loading.component';
+import { SignupButtonDirective } from '../../../directives/signupbutton.directive';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [InputComponent, ButtonComponent, ReactiveFormsModule, FormsModule],
+  imports: [InputComponent, ButtonComponent, ReactiveFormsModule, FormsModule, ButtonLoadingComponent,SignupButtonDirective],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css',
 })
@@ -26,10 +29,11 @@ export class SignupComponent implements OnInit {
   confirmpass!: boolean;
   successmessage!: string;
   errormessage!: string;
+  buttonboolean:boolean=false
 
   signupdata: login = {};
 
-  constructor(private signupservice: SignupService) {}
+  constructor(private signupservice: SignupService, private router:Router) {}
 
   ngOnInit(): void {}
 
@@ -96,16 +100,22 @@ export class SignupComponent implements OnInit {
         !this.passtest &&
         !this.confirmpass
       ) {
+        this.buttonboolean = true;
         this.signupservice.userSignup(this.signupdata).subscribe({
           next: (res) => {
-            console.log(res);
+            this.buttonboolean=false;
             this.successmessage = res.message;
-            this.signupservice.token=res.token;
-            setTimeout(()=>{
-              this.successmessage=''
-            },2000)
+            if (res.success) {
+              this.router.navigate(["/userhome"]);
+              this.signupservice.token=res.token;
+            } else {
+              setTimeout(()=>{
+                this.successmessage=''
+              },2000)
+            }
           },
           error: (err) => {
+            this.buttonboolean=false;
             this.errormessage = err.error.message;
             setTimeout(()=>{
               this.errormessage=''

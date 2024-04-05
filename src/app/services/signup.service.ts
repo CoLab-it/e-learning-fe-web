@@ -16,4 +16,8 @@ export class SignupService {
   userSignup(data:login){
     return this.http.post<any>(`${this.userapi}/signup`,data);
   }
+
+  userlogin(data:login){
+    return this.http.post<any>(`${this.userapi}/login`,data);
+  }
 }
