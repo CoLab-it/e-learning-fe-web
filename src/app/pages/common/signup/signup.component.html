@@ -50,8 +50,15 @@
                 </div>
                </div>
             </form>
+            <p class="w-full text-center text-[#143c14]">{{successmessage}}</p>
+            <p class="w-full text-center text-[#143c14]">{{errormessage}}</p>
             <div class="btn w-[85%] text-right">
-                <app-button [ButtonValue]="'Register'" (click)="onSubmit()" ></app-button>
+                @if(buttonboolean){
+                    <app-button-loading signupbutton ></app-button-loading>
+                }
+                @else{
+                    <app-button signupbutton [ButtonValue]="'Register'" (click)="onSubmit()" ></app-button>
+                }
             </div>
             <p class="login-text w-full  text-center text-white">You have already an account ? <a href="/login" class="cursor-pointer">Please login</a></p>
     </div>
