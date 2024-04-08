@@ -8,6 +8,18 @@ li{
     font-weight: 600;
     padding-top: 15px;
     padding-bottom: 15px;
+    cursor: pointer;
+}
+.listfull{
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: .5s  ease-in-out;
+}
+.listfull1{
+    transform: translateX(0);
+    opacity:  1;
+    transition: .5s  ease-in-out;
+    z-index: 10;
 }
 
 

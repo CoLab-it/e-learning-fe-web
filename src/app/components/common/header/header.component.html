@@ -16,13 +16,13 @@
         <i class="fa-solid fa-bars  flex items-center text-[30px]" (click)="booleancheck()"></i>
         </div>
    </div>
-   <div class="listfull h-full w-full  bg-[#5a7d7448] " [hidden]="booleanvalue">
+   <div class="listfull h-full w-full  bg-[#5a7d7461] " [ngClass]="{'listfull1': isClassAdded}">
     <ul class="list   w-[40%] h-full bg-[#52786e] " >
         <li>Home</li>
         <li>Contact</li>
         <li>Cources</li>
         <li>My Account</li>
         <li>jobs</li>
-        </ul>
+    </ul>
    </div>
 </div>
