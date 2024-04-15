@@ -45,7 +45,7 @@ export class LoginComponent {
             this.successmessage = res.message;
             if (res.success) {
               this.router.navigate(["/userhome"]);
-              this.signupservice.token=res.token;
+              localStorage.setItem('token',res.token)
             } else {
               setTimeout(()=>{
               this.buttonboolean=false;
