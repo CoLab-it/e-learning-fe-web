@@ -107,7 +107,7 @@ export class SignupComponent implements OnInit {
             this.successmessage = res.message;
             if (res.success) {
               this.router.navigate(["/userhome"]);
-              this.signupservice.token=res.token;
+              localStorage.setItem('token',res.token)
             } else {
               setTimeout(()=>{
                 this.successmessage=''
