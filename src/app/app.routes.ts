@@ -30,6 +30,6 @@ export const routes: Routes = [
     {
         path: 'user/courses',
         component: CoursesComponent
-    }
+    },
 
 ];
