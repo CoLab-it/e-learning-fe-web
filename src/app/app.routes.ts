@@ -4,6 +4,7 @@ import { SignupComponent } from './pages/common/signup/signup.component';
 import { HomeComponent } from './pages/user/home/home.component';
 import { userhomeGuard } from './guards/userhome.guard';
 import { loginGuard } from './guards/login.guard';
+import { CoursesComponent } from './pages/user/courses/courses.component';
 
 export const routes: Routes = [
     {
@@ -26,5 +27,9 @@ export const routes: Routes = [
         canActivate:[userhomeGuard],
         component:HomeComponent
     },
+    {
+        path: 'user/courses',
+        component: CoursesComponent
+    }
 
 ];
