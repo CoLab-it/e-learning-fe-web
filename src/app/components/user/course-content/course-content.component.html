@@ -1,0 +1,29 @@
+<p class="text-2xl font-bold p-4">Industry Professional Created Courses</p>
+<div class="flex flex-wrap">
+    @for (course of courses; track $index) {
+    <div class="w-52 border flex flex-col m-10">
+        <div>
+            <img class="h-40 w-full" [src]="course.image" />
+        </div>
+        <div class="p-2">
+            <p>{{course.name}}</p>
+            <div class="flex items-center">
+                {{course.rating}}
+                @for (stars of getStarArray(course.rating); track $index) {
+                    <img class="h-4 w-4 ml-1" src="../../../../assets/image/star.png" alt="">
+                }
+                 (3000)
+            </div>
+            <div class="flex justify-between">
+                <div>
+                    <p>₹{{course.price}}</p>
+                </div>
+                <div class="flex gap-3">
+                    <img class="h-5 w-5" src="../../../../assets/image/heart.png" alt="">
+                    <img class="h-5 w-5" src="../../../../assets/image/shopping-cart.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+</div>
