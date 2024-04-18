@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { UserService } from '../../../services/user.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { UserService } from '../../../services/user.service';
   styleUrl: './course-content.component.css',
 })
 export class CourseContentComponent implements OnInit {
-  constructor(private userServ: UserService) {}
+  constructor(private userServ: UserService, private router:Router) {}
   courses: any[] = [];
   ngOnInit(): void {
     this.getCourses();
@@ -30,5 +30,9 @@ export class CourseContentComponent implements OnInit {
   getStarArray(rating: number): any[] {
     const roundedRating = Math.floor(rating);
     return Array.from({ length: roundedRating }, (_, index) => index + 1);
+  }
+
+  getSingleCourse(id:any){
+    this.router.navigate([`/user/courses/${id}`]);
   }
 }

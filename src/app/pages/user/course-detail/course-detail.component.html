@@ -1,0 +1,20 @@
+<app-header></app-header>
+<div class="course-details-container">
+    <div class="course-image-container">
+        <img class="course-image" [src]="courseDetails?.imageUrl" alt="Course Image">
+    </div>
+    <div class="course-info border">
+        <h2>{{courseDetails?.name}}</h2>
+        <p class="course-price">₹ {{courseDetails?.price}} /-</p>
+        <p class="course-description">{{courseDetails?.description}}</p>
+        <div class="course-rating">
+            <p>Rating: {{courseDetails?.rating}}</p>
+        </div>
+        <div class="flex justify-around h-16 border">
+            <app-button [ButtonValue]="'Goto Cart'"></app-button>
+            <app-button [ButtonValue]="'Send Message'"></app-button>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/user/home/home.component';
 import { userhomeGuard } from './guards/userhome.guard';
 import { loginGuard } from './guards/login.guard';
 import { CoursesComponent } from './pages/user/courses/courses.component';
+import { CourseDetailComponent } from './pages/user/course-detail/course-detail.component';
 
 export const routes: Routes = [
     {
@@ -31,5 +32,9 @@ export const routes: Routes = [
         path: 'user/courses',
         component: CoursesComponent
     },
+    {
+        path: 'user/courses/:id',
+        component: CourseDetailComponent
+    }
 
 ];
