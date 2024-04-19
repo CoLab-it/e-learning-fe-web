@@ -10,9 +10,9 @@
         <div class="course-rating">
             <p>Rating: {{courseDetails?.rating}}</p>
         </div>
-        <div class="flex justify-around h-16 border">
-            <app-button [ButtonValue]="'Goto Cart'"></app-button>
-            <app-button [ButtonValue]="'Send Message'"></app-button>
+        <div class="flex justify-around border">
+            <app-button [buttonClass]="'course-details-btn'" [ButtonValue]="'Goto Cart'"></app-button>
+            <app-button [buttonClass]="'course-details-btn'" [ButtonValue]="'Send Message'"></app-button>
         </div>
     </div>
 </div>

@@ -22,6 +22,7 @@
 
 .course-info {
     flex: 2;
+    padding: 10px;
 }
 
 .course-info h2 {
