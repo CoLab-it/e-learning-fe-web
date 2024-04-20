@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -17,5 +18,13 @@ export class CommonService {
     const base64 = base64Url.replace('-', '+').replace('_', '/');
 
     return JSON.parse(window.atob(base64));
+  }
+
+  logout(){
+    const token = localStorage.getItem('token')
+    if(token){
+      localStorage.clear()
+    }
+    inject(Router).navigate(['/login'])
   }
 }

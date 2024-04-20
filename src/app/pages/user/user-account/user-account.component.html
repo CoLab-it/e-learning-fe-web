@@ -1,25 +1,22 @@
 <app-header></app-header>
 
-<div class="flex justify-around items-center gradient-bg p-8 rounded-lg shadow-lg">
-    <div class="w-1/2 flex flex-col items-center text-white">
+<div class="flex justify-center items-center gradient-bg p-8">
+    <div class="w-1/2 flex flex-col justify-center items-center text-white">
         <div>
             <img class="w-32 mx-auto mb-8" src="../../../../assets/image/shopping-cart.png" alt="Profile">
         </div>
         <div class="text-left">
-            <p class="text-lg font-semibold mb-4">Profile</p>
-            <p class="text-lg font-semibold mb-4">My Learning</p>
-            <p class="text-lg font-semibold mb-4">My Cart</p>
-            <p class="text-lg font-semibold mb-4">Wish List</p>
+            <p [routerLink]="'/user/myAccount'" class="cursor-pointer text-lg font-semibold mb-4">Profile</p>
+            <p [routerLink]="'/user/myAccount/myLearning'" class="cursor-pointer text-lg font-semibold mb-4">My Learning
+            </p>
+            <p [routerLink]="'/user/myAccount/cart'" class="cursor-pointer text-lg font-semibold mb-4">My Cart</p>
+            <p [routerLink]="'/user/myAccount/wishlist'" class="cursor-pointer text-lg font-semibold mb-4">Wish List</p>
+            <app-button [buttonClass]="'cursor-pointer text-lg font-semibold mb-4'" [ButtonValue]="'Logout'"
+                (click)="onLogout()"></app-button>
         </div>
-        <app-button [buttonClass]="''" [ButtonValue]="'Logout'" (click)="onLogout()"></app-button>
     </div>
-    <div class="w-1/2 flex flex-col justify-center">
-        <app-input [placeholder]="'Username'" #username class="mb-4"></app-input>
-        <app-input inputType="email" #email [placeholder]="'Email'" class="mb-4"></app-input>
-        <app-input inputType="number" #number [placeholder]="'Phone Number'" class="mb-4"></app-input>
-        <app-input [placeholder]="'Address'" #address class="mb-4"></app-input>
-        <app-button [buttonClass]="'w-[70%] bg-white rounded-md py-1'" [ButtonValue]="'Save'"
-            (click)="onSave()"></app-button>
+    <div class="w-1/2">
+        <router-outlet></router-outlet>
     </div>
 </div>
 
