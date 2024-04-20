@@ -14,4 +14,13 @@ export class UserService{
     getCourses():Observable<any>{
         return this.http.get(`${this.api}/getCourses`);
     }
+    getSingleCourseDetail(courseId:any):Observable<any>{
+        return this.http.get(`${this.api}/getSingleCourse/${courseId}`)
+    }
+    getUserProfile():Observable<any>{
+        return this.http.get(`${this.api}/getUserProfile`)
+    }
+    updateUserProfile(data:any):Observable<any>{
+        return this.http.patch(`${this.api}/updateProfile`, data)
+    }
 }

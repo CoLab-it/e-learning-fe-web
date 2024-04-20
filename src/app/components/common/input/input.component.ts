@@ -1,4 +1,4 @@
-import { Component, Input, input } from '@angular/core';
+import { Component, effect, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './input.component.css'
 })
 export class InputComponent {
-  value!: any
+  value!: any;
+  inputType = input('text');
   placeholder=input()
+
 }
