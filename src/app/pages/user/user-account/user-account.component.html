@@ -3,7 +3,9 @@
 <div class="flex justify-center items-center gradient-bg p-8">
     <div class="w-1/2 flex flex-col justify-center items-center text-white">
         <div>
-            <img class="w-32 mx-auto mb-8" [src]="imageUrl" alt="Profile">
+            <img class="w-32 mx-auto mb-8"
+                [src]="imageUrl ? imageUrl :'../../../../assets/image/252-2524695_dummy-profile-image-jpg-hd-png-download.webp'"
+                (click)="changeImage()" alt="photo">
         </div>
         <div class="text-left">
             <p [routerLink]="'/user/myAccount'" class="cursor-pointer text-lg font-semibold mb-4">Profile</p>

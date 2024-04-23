@@ -15,8 +15,6 @@ export class HeaderComponent {
   isClassAdded:boolean=false
   booleancheck(){
     this.booleanvalue= !this.booleanvalue
-    this.isClassAdded=!this.isClassAdded
-    console.log(this.booleanvalue);
-    console.log(this.isClassAdded);
+    this.isClassAdded=!this.isClassAdded;
   }
 }

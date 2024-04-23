@@ -37,7 +37,6 @@ export class CourseDetailComponent implements OnInit {
     this.userService.getSingleCourseDetail(this.courseId).subscribe({
       next: (res) => {
         this.courseDetails=res.course;
-        console.log(this.courseDetails);
       },
       error: (err) => {
         console.log(err);

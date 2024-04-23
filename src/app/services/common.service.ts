@@ -8,7 +8,7 @@ export class CommonService {
   constructor(private router: Router) {}
 
   tockendecode() {
-    console.log('minz');
+    console.log('commonService');
 
     const token = localStorage.getItem('token');
     if (!token) {

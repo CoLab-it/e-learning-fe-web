@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable } from "rxjs";
     providedIn:'root'
 })
 export class UserService{
-    subject = new BehaviorSubject('');
+    subject = new BehaviorSubject<any>('');
     getImage=this.subject.asObservable();
     
     

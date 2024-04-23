@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, input } from '@angular/core';
 import { HeaderComponent } from '../../../components/common/header/header.component';
 import { FooterComponent } from '../../../components/common/footer/footer.component';
 import { ButtonComponent } from '../../../components/common/button/button.component';
@@ -19,7 +19,7 @@ export class UserAccountComponent implements OnInit {
     private userServ: UserService
   ) {}
 
-  imageUrl:any;
+  imageUrl: any;
 
   ngOnInit(): void {
     this.getImg();
@@ -33,11 +33,28 @@ export class UserAccountComponent implements OnInit {
     this.userServ.getImage.subscribe({
       next: (res) => {
         console.log(res);
-        this.imageUrl=res;
+        this.imageUrl = res;
       },
       error: (err) => {
         console.log(err);
       },
     });
+  }
+  changeImage() {
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.accept = 'image/*';
+
+    fileInput.addEventListener('change', (event) => {
+      if (event.target instanceof HTMLInputElement && event.target.files) {
+        const file = event.target.files[0];
+        if (file) {
+          console.log('image send to save',file);
+          this.userServ.subject.next(file)
+        }
+      }
+    });
+
+    fileInput.click();
   }
 }
