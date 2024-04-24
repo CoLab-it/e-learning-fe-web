@@ -50,14 +50,7 @@ export class UserProfileComponent implements OnInit {
     });
   }
   onSave() {
-    this.userServ.getImage.subscribe({
-      next: (res) => {
-        this.imageUrl=res
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
+    this.getImage();
     this.formData.append('username', this.username.value);
     this.formData.append('email', this.email.value);
     this.formData.append('number', this.number.value);
@@ -67,6 +60,17 @@ export class UserProfileComponent implements OnInit {
       next: (res) => {
         console.log(res);
         this.userGetData();
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  getImage(){
+    this.userServ.getImage.subscribe({
+      next: (res) => {
+        this.imageUrl=res
       },
       error: (err) => {
         console.log(err);

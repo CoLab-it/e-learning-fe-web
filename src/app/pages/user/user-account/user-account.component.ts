@@ -32,8 +32,7 @@ export class UserAccountComponent implements OnInit {
   getImg() {
     this.userServ.getImage.subscribe({
       next: (res) => {
-        console.log(res);
-        this.imageUrl = res;
+        if(!this.imageUrl) this.imageUrl = res;
       },
       error: (err) => {
         console.log(err);
@@ -44,10 +43,10 @@ export class UserAccountComponent implements OnInit {
     const fileInput = document.createElement('input');
     fileInput.type = 'file';
     fileInput.accept = 'image/*';
-
     fileInput.addEventListener('change', (event) => {
       if (event.target instanceof HTMLInputElement && event.target.files) {
         const file = event.target.files[0];
+        this.imageUrl = URL.createObjectURL(file)
         if (file) {
           console.log('image send to save',file);
           this.userServ.subject.next(file)
