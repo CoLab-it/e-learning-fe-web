@@ -18,7 +18,6 @@ export class CourseContentComponent implements OnInit {
   getCourses() {
     this.userServ.getCourses().subscribe({
       next: (res) => {
-        console.log(res.courses);
         this.courses = res.courses;
       },
       error: (err) => {

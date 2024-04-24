@@ -5,10 +5,10 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class CommonService {
-  constructor() {}
+  constructor(private router: Router) {}
 
   tockendecode() {
-    console.log('minz');
+    console.log('commonService');
 
     const token = localStorage.getItem('token');
     if (!token) {
@@ -25,6 +25,6 @@ export class CommonService {
     if(token){
       localStorage.clear()
     }
-    inject(Router).navigate(['/login'])
+    this.router.navigate(['/login'])
   }
 }

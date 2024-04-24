@@ -1,12 +1,15 @@
 import { Injectable } from "@angular/core";
 import { environment } from "../../environment/environment.prod";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 
 @Injectable({
     providedIn:'root'
 })
 export class UserService{
+    subject = new BehaviorSubject<any>('');
+    getImage=this.subject.asObservable();
+    
     
     api = environment.userapi;
     constructor(private http: HttpClient){}
