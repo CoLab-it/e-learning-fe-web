@@ -22,6 +22,10 @@ li{
     z-index: 10;
 }
 
+.lis:focus{
+    color: black;
+}
+
 
 @media(max-width:500px){
     .list{
