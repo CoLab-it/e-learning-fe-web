@@ -27,7 +27,11 @@
                     <app-button-loading signupbutton ></app-button-loading>
                 }
                 @else{
+<<<<<<< HEAD
                     <app-button signupbutton [ButtonValue]="'Login'" (click)="onSubmit()" ></app-button>
+=======
+                    <app-button signupbutton [buttonClass]="'default'" [ButtonValue]="'Register'" (click)="onSubmit()" ></app-button>
+>>>>>>> ddcbf86ca0ec6ab660295f2033a7990b48db1833
                 }
             </div>
             <p class="signup-text w-full  text-center text-white">You didn't have account ? <a href="/" class="cursor-pointer">Please Register</a></p>

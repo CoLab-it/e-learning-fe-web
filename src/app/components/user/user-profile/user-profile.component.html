@@ -1,0 +1,8 @@
+<div class="">
+    <app-input [placeholder]="'Username'" #username class="mb-4"></app-input>
+    <app-input inputType="email" #email [placeholder]="'Email'" class="mb-4"></app-input>
+    <app-input inputType="number" #number [placeholder]="'Phone Number'" class="mb-4"></app-input>
+    <app-input [placeholder]="'Address'" #address class="mb-4"></app-input>
+    <app-button [buttonClass]="'w-[70%] bg-white rounded-md py-1'" [ButtonValue]="'Save'"
+        (click)="onSave()"></app-button>
+</div>
