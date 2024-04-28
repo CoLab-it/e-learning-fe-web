@@ -1,27 +1,64 @@
 <app-header></app-header>
 
-<div class="flex justify-center items-center gradient-bg p-8 ">
-    <div class="w-1/2 flex flex-col justify-center items-center text-white">
-        <div>
-            <img class="w-32 mx-auto mb-8"
-                [src]="imageUrl ? imageUrl :'../../../../assets/image/252-2524695_dummy-profile-image-jpg-hd-png-download.webp'"
-                (click)="changeImage()" alt="photo">
-        </div>
-        <div class="text-left">
-            <p [routerLink]="'/user/myAccount'" class="cursor-pointer text-lg font-semibold mb-4">Profile</p>
-            <p [routerLink]="'/user/myAccount/myLearning'" class="cursor-pointer text-lg font-semibold mb-4">My Learning
-            </p>
-            <p [routerLink]="'/user/myAccount/cart'" class="cursor-pointer text-lg font-semibold mb-4">My Cart</p>
-            <p [routerLink]="'/user/myAccount/wishlist'" class="cursor-pointer text-lg font-semibold mb-4">Wish List</p>
-            <app-button [buttonClass]="'cursor-pointer text-lg font-semibold mb-4'" [ButtonValue]="'Logout'"
-                (click)="onLogout()"></app-button>
-        </div>
+<div class="flex justify-center items-center gradient-bg p-8">
+  <div class="w-1/2 flex flex-col justify-center items-center text-white">
+    <div>
+      <img
+        class="w-[200px] h-[200px] mx-auto mb-8"
+        [src]="
+          imageUrl
+            ? imageUrl
+            : '../../../../assets/image/252-2524695_dummy-profile-image-jpg-hd-png-download.webp'
+        "
+        (click)="changeImage()"
+        alt="photo "
+      />
     </div>
-    <div class="w-1/2">
-        <router-outlet></router-outlet>
+    <div class="text-left flex flex-col gap-3">
+      <p
+        [routerLink]="'/user/myAccount'"
+        class="cursor-pointer rounded w-[200px] h-[35px] pt-1 pl-2 text-lg font-semibold bg-[#84A98C]"
+        [ngClass]="{'bg-[#84A98C]':activeIndex !==0, 'bg-highlight': activeIndex === 0}"
+        (click)="activeIndex = 0"
+      >
+        Profile
+      </p>
+      <p
+        [routerLink]="'/user/myAccount/myLearning'"
+        class="cursor-pointer rounded w-[200px] h-[35px] pt-1 pl-2 bg-[#84A98C] text-lg font-semibold"
+        [ngClass]="{'bg-[#84A98C]':activeIndex !==1, 'bg-highlight': activeIndex === 1}"
+        (click)="activeIndex = 1"
+      >
+        My Learning
+      </p>
+      <p
+        [routerLink]="'/user/myAccount/cart'"
+        class="cursor-pointer rounded w-[200px] h-[35px] pt-1 pl-2 bg-[#84A98C] text-lg font-semibold"
+        [ngClass]="{'bg-[#84A98C]':activeIndex !==2, 'bg-highlight': activeIndex === 2}"
+        (click)="activeIndex = 2"
+      >
+        My Cart
+      </p>
+      <p
+        [routerLink]="'/user/myAccount/wishlist'"
+        class="cursor-pointer rounded w-[200px] h-[35px] pt-1 pl-2 bg-[#84A98C] text-lg font-semibold"
+        [ngClass]="{'bg-[#84A98C]':activeIndex !==3, 'bg-highlight': activeIndex === 3}"
+        (click)="activeIndex = 3"
+      >
+        Wish List
+      </p>
+      <app-button
+        [buttonClass]="
+          'cursor-pointer text-lg font-semibold bg-[#2E3E47] w-[120px] h-[40px] rounded-lg '
+        "
+        [ButtonValue]="'Logout'"
+        (click)="onLogout()"
+      ></app-button>
     </div>
+  </div>
+  <div class="w-1/2">
+    <router-outlet></router-outlet>
+  </div>
 </div>
-
-
 
 <app-footer></app-footer>
