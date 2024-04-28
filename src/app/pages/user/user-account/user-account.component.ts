@@ -5,11 +5,12 @@ import { ButtonComponent } from '../../../components/common/button/button.compon
 import { Router, RouterModule } from '@angular/router';
 import { CommonService } from '../../../services/common.service';
 import { UserService } from '../../../services/user.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-user-account',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, ButtonComponent, RouterModule],
+  imports: [HeaderComponent, FooterComponent, ButtonComponent, RouterModule, CommonModule],
   templateUrl: './user-account.component.html',
   styleUrl: './user-account.component.css',
 })
@@ -18,6 +19,8 @@ export class UserAccountComponent implements OnInit {
     private commonServ: CommonService,
     private userServ: UserService
   ) {}
+
+  activeIndex: number | null = null
 
   imageUrl: any;
 
