@@ -7,11 +7,12 @@ import { SignupButtonDirective } from '../../../directives/signupbutton.directiv
 import { SignupService } from '../../../services/signup.service';
 import { Router } from '@angular/router';
 import { ButtonLoadingComponent } from '../../../components/common/button-loading/button-loading.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [InputComponent,ButtonComponent,SignupButtonDirective, ButtonLoadingComponent],
+  imports: [InputComponent,ButtonComponent,SignupButtonDirective, ButtonLoadingComponent,CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -21,6 +22,8 @@ export class LoginComponent {
   @ViewChild('password') password!: InputComponent ;
   submit=false
   buttonboolean:boolean=false
+  visible:boolean = true
+  changetype:boolean = true
   successmessage!:string
   errormessage!:string
 
@@ -31,6 +34,11 @@ export class LoginComponent {
   }
 
   ngOnInit(): void {}
+
+  viewPass(){
+    this.visible = !this.visible
+    this.changetype = !this.changetype
+  }
 
 
   onSubmit(){
