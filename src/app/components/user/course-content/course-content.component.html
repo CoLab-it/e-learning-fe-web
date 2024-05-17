@@ -19,7 +19,7 @@
                     <p>₹{{course.price}}</p>
                 </div>
                 <div class="flex gap-3">
-                    <img class="h-5 w-5" src="../../../../assets/image/heart.png" alt="">
+                    <img (click)="addOrRemoveFromWishlist($event, course._id)" class="cursor-pointer h-5 w-5" src="../../../../assets/image/heart.png" alt="">
                     <img class="h-5 w-5" src="../../../../assets/image/shopping-cart.png" alt="">
                 </div>
             </div>
