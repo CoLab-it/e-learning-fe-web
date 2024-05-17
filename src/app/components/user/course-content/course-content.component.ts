@@ -10,7 +10,7 @@ import { UserService } from '../../../services/user.service';
   styleUrl: './course-content.component.css',
 })
 export class CourseContentComponent implements OnInit {
-  constructor(private userServ: UserService, private router:Router) {}
+  constructor(private userServ: UserService, private router: Router) {}
   courses: any[] = [];
   ngOnInit(): void {
     this.getCourses();
@@ -31,7 +31,21 @@ export class CourseContentComponent implements OnInit {
     return Array.from({ length: roundedRating }, (_, index) => index + 1);
   }
 
-  getSingleCourse(id:any){
+  getSingleCourse(id: any) {
     this.router.navigate([`/user/courses/${id}`]);
+  }
+
+  addOrRemoveFromWishlist(event: any, courseId: any) {
+    event.stopPropagation();
+    console.log(courseId);
+    this.userServ.addOrRemoveFromWishlist(courseId).subscribe({
+      next: (res) => {
+        console.log('added to wishlist');
+        console.log(res);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 }

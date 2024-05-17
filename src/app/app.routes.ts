@@ -11,6 +11,7 @@ import { UserProfileComponent } from './components/user/user-profile/user-profil
 import { UserLearningComponent } from './components/user/user-learning/user-learning.component';
 import { UserCartComponent } from './components/user/user-cart/user-cart.component';
 import { UserWishlistComponent } from './components/user/user-wishlist/user-wishlist.component';
+import { ContactComponent } from './pages/user/contact/contact.component';
 
 export const routes: Routes = [
   {
@@ -42,13 +43,17 @@ export const routes: Routes = [
     component: CourseDetailComponent,
   },
   {
+    path: 'user/contact',
+    component: ContactComponent,
+  },
+  {
     path: 'user/myAccount',
     component: UserAccountComponent,
     children: [
       { path: '', component: UserProfileComponent },
       { path: 'myLearning', component: UserLearningComponent },
-      { path: 'cart', component: UserCartComponent},
-      { path: 'wishlist', component: UserWishlistComponent}
+      { path: 'cart', component: UserCartComponent },
+      { path: 'wishlist', component: UserWishlistComponent },
     ],
   },
 ];

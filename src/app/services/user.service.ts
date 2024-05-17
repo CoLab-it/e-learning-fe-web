@@ -26,4 +26,10 @@ export class UserService{
     updateUserProfile(data:any):Observable<any>{
         return this.http.patch(`${this.api}/updateProfile`, data)
     }
+    addOrRemoveFromWishlist(id:any):Observable<any>{
+        return this.http.patch(`${this.api}/addOrRemoveFromWishlist`, {id})
+    }
+    getLikedCourses():Observable<any>{
+        return this.http.get(`${this.api}/getLikedCourses`)
+    }
 }

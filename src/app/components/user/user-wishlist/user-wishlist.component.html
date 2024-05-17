@@ -1,1 +1,7 @@
-<p>user-wishlist works!</p>
+@for (course of courses; track $index) {
+    <div class="course-card" (click)="goToCourse(course._id)">
+        <p class="course-name">{{course.name}}</p>
+        <p class="course-description">{{course.description | shorten:5}}</p>
+        <p class="course-price">{{course.price | currency:'INR'}}</p>
+    </div>
+}
